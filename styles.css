@@ -1,0 +1,179 @@
+/* setting up variables (e.g. set colour scheme) to be called later */
+:root {
+    /* --temp: rgb(167, 45, 45); */
+    --temp: rgb(9, 107, 114);
+    /* --backgroundColor: rgb(237, 242, 247); */
+    --backgroundColor: rgb(238, 238, 238);
+    --primaryFont: rgb(13, 31, 45);
+    --secondaryFont: rgb(32, 158, 148);
+    --hoverColor: red;
+    --banner: rgb(137, 161, 199);
+}
+
+html {
+    scroll-snap-type: y mandatory;
+}
+/* main {
+    scroll-snap-align: start;
+} */
+
+body {
+    font-family: "Ubuntu", Helvetica, sans-serif;
+    font-size: larger;
+    background-color: var(--backgroundColor);
+    color: var(--primaryFont);
+    margin: 0px;
+}
+
+h1, h2 {
+    font-family: "Hammersmith One", Helvetica, sans-serif;
+}
+
+main article {
+    max-width: 75vw;
+    margin: auto;
+    /* scroll-snap-align: start; */
+}
+
+article h2 {
+    margin-top: 5rem;
+}
+
+.graphTitle {
+    color: var(--temp);
+}
+
+/* .plotly {
+    max-width: 750px;
+    max-height: 650px;
+} */
+
+.plotContainer {
+    display: flex;
+    justify-content: center;
+    max-height: 600px;
+    /* margin: auto; */
+    align-items: center;
+}
+
+.plotContainer div {
+    align-self: center;
+}
+
+.banner {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    margin: auto;
+
+    background-color: var(--banner);
+}
+
+/* References: 
+https://www.geeksforgeeks.org/how-to-create-a-hero-image-using-html-and-css/
+https://www.youtube.com/watch?v=5CztcrXpfec
+*/
+/* .heroContainer {
+    display: flex;
+    align-items: stretch;
+} */
+/* linear gradient is applied over the hero image, allows fading into the body content */
+.heroGradient {
+    /* background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1), rgba(237, 242, 247, 1)); */
+    /* background: linear-gradient(180deg, rgba(0,0,0,0) 70%, var(--backgroundColor) 100%); */
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+.heroImage {
+    width: 100%;
+    height: 100vh;
+    margin-top: 0px;
+}
+.heroContent {
+    /* text-align: center; */
+    position: absolute;
+    /* top: 50px;
+    left: 27%; */
+    top: 15vh;
+    left: 12vw;
+    max-width: 35%;
+    color: rgb(255, 255, 255);
+    font-size: 3.1rem;
+    /* font-size: 50px; */
+}
+
+footer {
+    /* position: fixed; */
+    /* left: 0;
+    bottom: 0; */
+    width: 100%;
+    margin-top: 75px;
+    height: 75px;
+    text-align: center;
+    background-color: rgb(152, 152, 152);
+    color: rgb(209, 209, 209);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Source: https://uiverse.io/ArturCodeCraft/afraid-fish-22 */
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: var(--secondaryFont);
+}
+
+a:hover {
+    /* color: rgb(9, 150, 82); */
+    color: red;
+}
+
+#referenceList {
+    color: black;
+}
+#referenceList:hover {
+    color: var(--hoverColor);
+}
+
+
+/* <main-style> ============================ */
+/* .scrollText {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+} */
+
+.scrollContainer {
+    /* max-width: fit-content; */
+    max-width: 25%;
+}
+
+.scrollContainer .scrollBox {
+    animation: scroll-down 2s infinite;
+    position: inherit;
+}
+
+/* Animating the scroll icon */
+@keyframes scroll-down {
+    0%, 100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+
+    35% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+}
