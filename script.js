@@ -120,11 +120,44 @@ Plotly.d3.csv("datasets/frequency_distraction.csv", distractionData => {
     const midHours = unpack(distractionData, "3.5 hours");
     const highHours = unpack(distractionData, "> 5 hours");
 
+    // var traceLowHours = {
+    //     x: frequency,
+    //     y: lowHours,
+    //     type: "bar",
+    //     // mode: "lines+markers",
+    //     name: "< 2 hours",
+    //     marker: {
+    //         color: barLow
+    //     }
+    // };
+
+    // var traceMidHours = {
+    //     x: frequency,
+    //     y: midHours, 
+    //     type: "bar",
+    //     // mode: "lines+markers",
+    //     name: "3.5 hours",
+    //     marker: {
+    //         color: barMid
+    //     }
+    // };
+
+    // var traceHighHours = {
+    //     x: frequency,
+    //     y: highHours,
+    //     type: "bar",
+    //     // mode: "lines+markers",
+    //     name: "> 5 hours",
+    //     marker: {
+    //         color: barHigh
+    //     }
+    // };
+
     var traceLowHours = {
         x: frequency,
         y: lowHours,
-        // type: "bar",
-        mode: "lines+markers",
+        type: "bar",
+        // mode: "lines+markers",
         name: "< 2 hours",
         marker: {
             color: barLow
@@ -134,23 +167,27 @@ Plotly.d3.csv("datasets/frequency_distraction.csv", distractionData => {
     var traceMidHours = {
         x: frequency,
         y: midHours, 
-        // type: "bar",
-        mode: "lines+markers",
+        type: "bar",
+        // mode: "lines+markers",
         name: "3.5 hours",
         marker: {
             color: barMid
-        }
+        },
+        xaxis: 'x2',
+        yaxis: 'y2'
     };
 
     var traceHighHours = {
         x: frequency,
         y: highHours,
-        // type: "bar",
-        mode: "lines+markers",
+        type: "bar",
+        // mode: "lines+markers",
         name: "> 5 hours",
         marker: {
             color: barHigh
-        }
+        },
+        xaxis: 'x3',
+        yaxis: 'y3'
     };
 
     var data = [traceLowHours, traceMidHours, traceHighHours];
@@ -160,7 +197,21 @@ Plotly.d3.csv("datasets/frequency_distraction.csv", distractionData => {
         paper_bgcolor: backgroundColor,
         yaxis: {
             title: "Amount of people"
-        }
+        },
+        xaxis: {
+            title: "Distraction frequency"
+        },
+        xaxis2: {
+            title: "Distraction frequency"
+        },
+        xaxis3: {
+            title: "Distraction frequency"
+        },
+        grid: { //subplot layout to make the graphs sit in one row
+            rows: 1, 
+            columns: 3, 
+            pattern: 'independent'
+        } 
     };
 
     var config = {
@@ -169,13 +220,8 @@ Plotly.d3.csv("datasets/frequency_distraction.csv", distractionData => {
         displayModeBar: false
     }
 
-    Plotly.newPlot("plotDistraction", data, layout, config);
-    Plotly.newPlot("plotDistractionLow", [traceLowHours], layout, config);
-    Plotly.newPlot("plotDistractionMid", [traceMidHours], layout, config);
-    Plotly.newPlot("plotDitractionHigh", [traceHighHours], layout, config);
-    // <div id="plotDistractionLow" class="plotly"></div>
-    // <div id="plotDistractionMid" class="plotly"></div>
-    // <div id="plotDistractionHigh" class="plotly"></div>
+    // Plotly.newPlot("plotDistraction", data, layout, config);
+    Plotly.newPlot("plotDistractionSeparate", data, layout, config);
 });
 
 // Chart comparing the average daily hours spent on social media with different kinds of wellbeing: lifestlye, mental and physical

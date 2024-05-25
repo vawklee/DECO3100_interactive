@@ -56,8 +56,15 @@ article h2 {
     align-items: center;
 }
 
-.plotContainer div {
+/* .plotContainer div {
     align-self: center;
+} */
+.plotParagraph {
+    align-self: center;
+}
+
+.plotRow h3 {
+    text-align: center;
 }
 
 .banner {
@@ -68,7 +75,6 @@ article h2 {
     align-items: center;
     /* text-align: center; */
     margin: auto;
-
     background-color: var(--banner);
 }
 
