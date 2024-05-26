@@ -5,8 +5,8 @@
     /* --backgroundColor: rgb(237, 242, 247); */
     --backgroundColor: rgb(238, 238, 238);
     --primaryFont: rgb(13, 31, 45);
-    --secondaryFont: rgb(32, 158, 148);
-    --hoverColor: red;
+    --secondaryFont: rgb(13, 31, 45);
+    --hoverColor: rgb(32, 158, 148);
     --banner: rgb(137, 161, 199);
 }
 
@@ -120,8 +120,8 @@ footer {
     margin-top: 75px;
     height: 75px;
     text-align: center;
-    background-color: rgb(152, 152, 152);
-    color: rgb(209, 209, 209);
+    background-color: rgb(197, 197, 197);
+    color: rgb(0, 0, 0);
 
     display: flex;
     justify-content: center;
@@ -129,9 +129,9 @@ footer {
 }
 
 /* Source: https://uiverse.io/ArturCodeCraft/afraid-fish-22 */
-a {
+/* a {
     text-decoration: none;
-}
+} */
 
 a:link, a:visited {
     color: var(--secondaryFont);
@@ -139,14 +139,14 @@ a:link, a:visited {
 
 a:hover {
     /* color: rgb(9, 150, 82); */
-    color: red;
+    color: var(--hoverColor);
 }
 
 #referenceList {
     color: black;
 }
 #referenceList:hover {
-    color: var(--hoverColor);
+    color: red;
 }
 
 

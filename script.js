@@ -195,17 +195,24 @@ Plotly.d3.csv("datasets/frequency_distraction.csv", distractionData => {
     var layout = {
         title: "Frequency of distraction by social media sorted by average weekly hours spent",
         paper_bgcolor: backgroundColor,
-        yaxis: {
-            title: "Amount of people"
-        },
         xaxis: {
             title: "Distraction frequency"
+        },
+        yaxis: {
+            title: "Amount of people",
+            range: [0, 100]
         },
         xaxis2: {
             title: "Distraction frequency"
         },
+        yaxis2:{
+            range: [0, 100]
+        },
         xaxis3: {
             title: "Distraction frequency"
+        },
+        yaxis3: {
+            range: [0, 100]
         },
         grid: { //subplot layout to make the graphs sit in one row
             rows: 1, 
@@ -376,7 +383,9 @@ Plotly.d3.csv("datasets/frequency_depression.csv", depressionData => {
         name: "3.5 hours",
         marker: {
             color: barMid
-        }
+        },
+        xaxis: 'x2',
+        yaxis: 'y2'
     };
 
     var traceHighHours = {
@@ -386,7 +395,9 @@ Plotly.d3.csv("datasets/frequency_depression.csv", depressionData => {
         name: "> 5 hours",
         marker: {
             color: barHigh
-        }
+        },
+        xaxis: 'x3',
+        yaxis: 'y3'
     };
 
     var data = [traceLowHours, traceMidHours, traceHighHours];
@@ -394,6 +405,30 @@ Plotly.d3.csv("datasets/frequency_depression.csv", depressionData => {
     var layout = {
         title: "Average daily hours spent on social media affecting depression rates",
         paper_bgcolor: backgroundColor,
+        xaxis: {
+            title: "Depression frequency"
+        },
+        yaxis: {
+            title: "Amount of people",
+            range: [0, 100]
+        },
+        xaxis2: {
+            title: "Depression frequency"
+        },
+        yaxis2:{
+            range: [0, 100]
+        },
+        xaxis3: {
+            title: "Depression frequency"
+        },
+        yaxis3: {
+            range: [0, 100]
+        },
+        grid: { //subplot layout to make the graphs sit in one row
+            rows: 1, 
+            columns: 3, 
+            pattern: 'independent'
+        }
     };
 
     var config = {
@@ -402,7 +437,8 @@ Plotly.d3.csv("datasets/frequency_depression.csv", depressionData => {
         displayModeBar: false
     }
 
-    Plotly.newPlot("plotDepression", data, layout, config);
+    // Plotly.newPlot("plotDepression", data, layout, config);
+    Plotly.newPlot("plotDepressionSeparate", data, layout, config);
 });
 
 // Chart comparing social media hours with the amount of people who experience sleeplessness
@@ -429,7 +465,9 @@ Plotly.d3.csv("datasets/frequency_sleep.csv", sleepData => {
         name: "3.5 hours",
         marker: {
             color: barMid
-        }
+        },
+        xaxis: 'x2',
+        yaxis: 'y2'
     };
 
     var traceHighHours = {
@@ -439,7 +477,9 @@ Plotly.d3.csv("datasets/frequency_sleep.csv", sleepData => {
         name: "> 5 hours",
         marker: {
             color: barHigh
-        }
+        },
+        xaxis: 'x3',
+        yaxis: 'y3'
     };
 
     var data = [traceLowHours, traceMidHours, traceHighHours];
@@ -447,6 +487,30 @@ Plotly.d3.csv("datasets/frequency_sleep.csv", sleepData => {
     var layout = {
         title: "Sleeping habits impacted by average daily hours spent on social media",
         paper_bgcolor: backgroundColor,
+        xaxis: {
+            title: "Sleeplessness frequency"
+        },
+        yaxis: {
+            title: "Amount of people",
+            range: [0, 100]
+        },
+        xaxis2: {
+            title: "Sleeplessness frequency"
+        },
+        yaxis2:{
+            range: [0, 100]
+        },
+        xaxis3: {
+            title: "Sleeplessness frequency"
+        },
+        yaxis3: {
+            range: [0, 100]
+        },
+        grid: { //subplot layout to make the graphs sit in one row
+            rows: 1, 
+            columns: 3, 
+            pattern: 'independent'
+        }
     };
 
     var config = {
@@ -455,5 +519,6 @@ Plotly.d3.csv("datasets/frequency_sleep.csv", sleepData => {
         displayModeBar: false
     }
 
-    Plotly.newPlot("plotSleeplessness", data, layout, config);
+    // Plotly.newPlot("plotSleeplessness", data, layout, config);
+    Plotly.newPlot("plotSleeplessnessSeparate", data, layout, config);
 });
