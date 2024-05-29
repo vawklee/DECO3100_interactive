@@ -232,7 +232,34 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
         hovertemplate: "%{y:.2f}%<extra></extra>"
     };
 
+    var traceEmotional = {
+        x: age,
+        y: emotional,
+        mode: "lines",
+        name: "Emotional wellbeing %",
+        line: {
+            color: lineRed
+        },
+        yaxis: "y2",
+        hovertemplate: "%{y:.2f}%<extra></extra>"
+    };
+
+    var tracePhysical = {
+        x: age,
+        y: physical,
+        mode: "lines",
+        name: "Physical wellbeing %",
+        line: {
+            color: lineRed
+        },
+        yaxis: "y2",
+        hovertemplate: "%{y:.2f}%<extra></extra>"
+    };
+
     var dataImpact = [traceWeeklyHours, traceImpact];
+    var dataEmotional = [traceWeeklyHours, traceEmotional];
+    var dataPhysical = [traceWeeklyHours, tracePhysical];
+
     var layoutImpact = {
         title: "Social media's negative impact on behaviour & lifestyle in 2021",
         xaxis: {
@@ -259,28 +286,6 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
         }
     };
 
-    var config = {
-        responsive: true,
-        scrollZoom: false,
-        displayModeBar: false
-    }
-
-    // Charting the impact of social media hours on behaviour and lifestyle
-    Plotly.newPlot("plotBehaviourImpact", dataImpact, layoutImpact, config);
-
-    var traceEmotional = {
-        x: age,
-        y: emotional,
-        mode: "lines",
-        name: "Emotional wellbeing %",
-        line: {
-            color: lineRed
-        },
-        yaxis: "y2",
-        hovertemplate: "%{y:.2f}%<extra></extra>"
-    };
-
-    var dataEmotional = [traceWeeklyHours, traceEmotional];
     var layoutEmotional = {
         title: "Social media's impact on emotional wellbeing",
         xaxis: {
@@ -306,22 +311,7 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
             x: 1.5
         }
     };
-    // Chart comparing social media usage with emotional wellbeing
-    Plotly.newPlot("plotEmotionalWellbeing", dataEmotional, layoutEmotional, config);
-
-    var tracePhysical = {
-        x: age,
-        y: physical,
-        mode: "lines",
-        name: "Physical wellbeing %",
-        line: {
-            color: lineRed
-        },
-        yaxis: "y2",
-        hovertemplate: "%{y:.2f}%<extra></extra>"
-    };
-
-    var dataPhysical = [traceWeeklyHours, tracePhysical];
+    
     var layoutPhysical = {
         title: "Social media's impact on physical wellbeing",
         xaxis: {
@@ -347,6 +337,19 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
             x: 1.45
         }
     };
+
+    var config = {
+        responsive: true,
+        scrollZoom: false,
+        displayModeBar: false
+    };
+
+    // Charting the impact of social media hours on behaviour and lifestyle
+    Plotly.newPlot("plotBehaviourImpact", dataImpact, layoutImpact, config);
+    
+    // Chart comparing social media usage with emotional wellbeing
+    Plotly.newPlot("plotEmotionalWellbeing", dataEmotional, layoutEmotional, config);
+    
     // Chart that compares social media hours with physical wellbeing
     Plotly.newPlot("plotPhysicalWellbeing", dataPhysical, layoutPhysical, config);
 });
