@@ -191,3 +191,13 @@ a:hover {
         opacity: 0;
     }
 }
+
+.references {
+    max-width: 90vw;
+    margin: auto;
+}
+
+.referenceHeading {
+    max-width: 95vw;
+    margin: 20px auto auto auto;
+}
