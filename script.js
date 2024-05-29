@@ -4,10 +4,14 @@ const unpack = (data, key) => data.map(row => row[key]);
 const backgroundColor = "#eeeeee";
 const lineBlue = "#80AAC6";
 // const lineBlue = "#5ca9a4";
-const lineRed = "#e35840";
-const barLow = "#7aab49";
-const barMid = "#ffcb3d";
-const barHigh = "#e35840";
+// const lineRed = "#e35840";
+const lineRed = "#d15252";
+// const barLow = "#7aab49";
+// const barMid = "#ffcb3d";
+// const barHigh = "#e35840";
+const barLow = "#8ab063";
+const barMid = "#ffb947";
+const barHigh = "#d15252";
 
 // Chart for the number of social media users worldwide from 2017 to 2022
 Plotly.d3.csv("datasets/num_users_worldwide_predictions.csv", userData => {
@@ -111,7 +115,202 @@ Plotly.d3.csv("datasets/avg_dailytime_worldwide.csv", dailyData => {
     Plotly.newPlot("plotDailyMinutes", data, layout, config);
 });
 
-// Chart for comparing average daily hours spent on social media with the frequency of feeling distracted
+// NEW: Chart for comparing average daily hours spent on social media with the frequency of feeling distracted
+Plotly.d3.csv("datasets/frequency_distraction_percentages.csv", distractionData => {
+    const frequency = unpack(distractionData, "Frequency of distraction");
+    const lowHours = unpack(distractionData, "< 2 hours");
+    const midHours = unpack(distractionData, "3.5 hours");
+    const highHours = unpack(distractionData, "> 5 hours");
+    console.log(frequency, lowHours, midHours, highHours);
+
+    var traceLowHours = {
+        x: frequency,
+        y: lowHours,
+        name: "< 2 hours",
+        type: "bar",
+        marker: {
+            color: barLow
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceMidHours = {
+        x: frequency,
+        y: midHours, 
+        name: "3.5 hours",
+        type: "bar",
+        marker: {
+            color: barMid
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceHighHours = {
+        x: frequency,
+        y: highHours,
+        name: "> 5 hours",
+        type: "bar",
+        marker: {
+            color: barHigh
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var data = [traceLowHours, traceMidHours, traceHighHours];
+
+    var layout = {
+        title: "Daily social media hours influencing frequency of distraction",
+        barmode: "stack",
+        paper_bgcolor: backgroundColor,
+        xaxis: {
+            title: "Distraction frequency"
+        },
+        yaxis: {
+            title: "Number of people (%)",
+            ticksuffix: "%",
+            range: [0, 100]
+        },
+    };
+
+    var config = {
+        responsive: true,
+        scrollZoom: false,
+        displayModeBar: false
+    };
+
+    Plotly.newPlot("plotDistraction", data, layout, config);
+});
+
+// NEW: Chart that compares social media hours with the frequency of depression symptoms
+Plotly.d3.csv("datasets/frequency_depression_percentages.csv", depressionData => {
+    const depression = unpack(depressionData, "Frequency of depression");
+    const lowHours = unpack(depressionData, "< 2 hours");
+    const midHours = unpack(depressionData, "3.5 hours");
+    const highHours = unpack(depressionData, "> 5 hours");
+
+    var traceLowHours = {
+        x: depression,
+        y: lowHours,
+        name: "< 2 hours",
+        type: "bar",
+        marker: {
+            color: barLow
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceMidHours = {
+        x: depression,
+        y: midHours, 
+        name: "3.5 hours",
+        type: "bar",
+        marker: {
+            color: barMid
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceHighHours = {
+        x: depression,
+        y: highHours,
+        name: "> 5 hours",
+        type: "bar",
+        marker: {
+            color: barHigh
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var data = [traceLowHours, traceMidHours, traceHighHours];
+
+    var layout = {
+        title: "Daily social media hours influencing frequency of depression",
+        barmode: "stack",
+        paper_bgcolor: backgroundColor,
+        xaxis: {
+            title: "Depression frequency"
+        },
+        yaxis: {
+            title: "Number of people (%)",
+            ticksuffix: "%",
+            range: [0, 100]
+        },
+    };
+
+    var config = {
+        responsive: true,
+        scrollZoom: false,
+        displayModeBar: false
+    };
+
+    Plotly.newPlot("plotDepression", data, layout, config);
+});
+
+Plotly.d3.csv("datasets/frequency_sleep_percentages.csv", sleepData => {
+    const sleep = unpack(sleepData, "Sleeplessness");
+    const lowHours = unpack(sleepData, "< 2 hours");
+    const midHours = unpack(sleepData, "3.5 hours");
+    const highHours = unpack(sleepData, "> 5 hours");
+
+    var traceLowHours = {
+        x: sleep,
+        y: lowHours,
+        name: "< 2 hours",
+        type: "bar",
+        marker: {
+            color: barLow
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceMidHours = {
+        x: sleep,
+        y: midHours, 
+        name: "3.5 hours",
+        type: "bar",
+        marker: {
+            color: barMid
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceHighHours = {
+        x: sleep,
+        y: highHours,
+        name: "> 5 hours",
+        type: "bar",
+        marker: {
+            color: barHigh
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var data = [traceLowHours, traceMidHours, traceHighHours];
+
+    var layout = {
+        title: "Daily social media hours influencing frequency of sleeplessness",
+        barmode: "stack",
+        paper_bgcolor: backgroundColor,
+        xaxis: {
+            title: "Sleeplessness frequency"
+        },
+        yaxis: {
+            title: "Number of people (%)",
+            ticksuffix: "%",
+            range: [0, 100]
+        },
+    };
+
+    var config = {
+        responsive: true,
+        scrollZoom: false,
+        displayModeBar: false
+    };
+
+    Plotly.newPlot("plotSleeplessness", data, layout, config);
+});
+
+// OLD VERSION: Chart for comparing average daily hours spent on social media with the frequency of feeling distracted
 Plotly.d3.csv("datasets/frequency_distraction.csv", distractionData => {
     const frequency = unpack(distractionData, "Frequency of distraction");
     const lowHours = unpack(distractionData, "< 2 hours");
@@ -196,10 +395,180 @@ Plotly.d3.csv("datasets/frequency_distraction.csv", distractionData => {
     }
 
     // Plotly.newPlot("plotDistraction", data, layout, config);
-    Plotly.newPlot("plotDistractionSeparate", data, layout, config);
+    // Plotly.newPlot("plotDistractionSeparate", data, layout, config);
 });
 
-// Chart comparing the average daily hours spent on social media with different kinds of wellbeing: lifestlye, mental and physical
+// OLD VERSION: Chart that compares social media hours with the frequency of depression symptoms
+Plotly.d3.csv("datasets/frequency_depression.csv", depressionData => {
+    const depression = unpack(depressionData, "Frequency of depression");
+    const lowHours = unpack(depressionData, "< 2 hours");
+    const midHours = unpack(depressionData, "3.5 hours");
+    const highHours = unpack(depressionData, "> 5 hours");
+
+    var traceLowHours = {
+        x: depression,
+        y: lowHours,
+        type: "bar",
+        name: "< 2 hours",
+        marker: {
+            color: barLow
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceMidHours = {
+        x: depression,
+        y: midHours, 
+        type: "bar",
+        name: "3.5 hours",
+        marker: {
+            color: barMid
+        },
+        xaxis: 'x2',
+        yaxis: 'y2',
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceHighHours = {
+        x: depression,
+        y: highHours,
+        type: "bar",
+        name: "> 5 hours",
+        marker: {
+            color: barHigh
+        },
+        xaxis: 'x3',
+        yaxis: 'y3',
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var data = [traceLowHours, traceMidHours, traceHighHours];
+
+    var layout = {
+        title: "Average daily hours spent on social media affecting depression rates",
+        paper_bgcolor: backgroundColor,
+        xaxis: {
+            title: "Depression frequency"
+        },
+        yaxis: {
+            title: "Amount of people",
+            range: [0, 100]
+        },
+        xaxis2: {
+            title: "Depression frequency"
+        },
+        yaxis2:{
+            range: [0, 100]
+        },
+        xaxis3: {
+            title: "Depression frequency"
+        },
+        yaxis3: {
+            range: [0, 100]
+        },
+        grid: { //subplot layout to make the graphs sit in one row
+            rows: 1, 
+            columns: 3, 
+            pattern: 'independent'
+        }
+    };
+
+    var config = {
+        responsive: true,
+        scrollZoom: false,
+        displayModeBar: false
+    }
+
+    // Plotly.newPlot("plotDepression", data, layout, config);
+    // Plotly.newPlot("plotDepressionSeparate", data, layout, config);
+});
+
+// OLD VERSION: Chart comparing social media hours with the amount of people who experience sleeplessness
+Plotly.d3.csv("datasets/frequency_sleep.csv", sleepData => {
+    const sleep = unpack(sleepData, "Sleeplessness");
+    const lowHours = unpack(sleepData, "< 2 hours");
+    const midHours = unpack(sleepData, "3.5 hours");
+    const highHours = unpack(sleepData, "> 5 hours");
+
+    var traceLowHours = {
+        x: sleep,
+        y: lowHours,
+        type: "bar",
+        name: "< 2 hours",
+        marker: {
+            color: barLow
+        },
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceMidHours = {
+        x: sleep,
+        y: midHours, 
+        type: "bar",
+        name: "3.5 hours",
+        marker: {
+            color: barMid
+        },
+        xaxis: 'x2',
+        yaxis: 'y2',
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var traceHighHours = {
+        x: sleep,
+        y: highHours,
+        type: "bar",
+        name: "> 5 hours",
+        marker: {
+            color: barHigh
+        },
+        xaxis: 'x3',
+        yaxis: 'y3',
+        hovertemplate: "Amount of people: %{y}<extra></extra>"
+    };
+
+    var data = [traceLowHours, traceMidHours, traceHighHours];
+
+    var layout = {
+        title: "Sleeping habits impacted by average daily hours spent on social media",
+        paper_bgcolor: backgroundColor,
+        xaxis: {
+            title: "Sleeplessness frequency"
+        },
+        yaxis: {
+            title: "Amount of people",
+            range: [0, 100]
+        },
+        xaxis2: {
+            title: "Sleeplessness frequency"
+        },
+        yaxis2:{
+            range: [0, 100]
+        },
+        xaxis3: {
+            title: "Sleeplessness frequency"
+        },
+        yaxis3: {
+            range: [0, 100]
+        },
+        grid: { //subplot layout to make the graphs sit in one row
+            rows: 1, 
+            columns: 3, 
+            pattern: 'independent'
+        }
+    };
+
+    var config = {
+        responsive: true,
+        scrollZoom: false,
+        displayModeBar: false
+    }
+
+    // Plotly.newPlot("plotSleeplessness", data, layout, config);
+    // Plotly.newPlot("plotSleeplessnessSeparate", data, layout, config);
+});
+
+// 3 charts comparing the average daily hours spent on social media with different kinds of wellbeing: lifestlye, mental and physical
 Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { //"datasets/colorado_avg_wellbeing.csv"
     const age = unpack(coloradoData, "Age");
     const hours = unpack(coloradoData, "Avg weekly hours spent on social media");
@@ -352,174 +721,4 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
     
     // Chart that compares social media hours with physical wellbeing
     Plotly.newPlot("plotPhysicalWellbeing", dataPhysical, layoutPhysical, config);
-});
-
-// Chart that compares social media hours with the frequency of depression symptoms
-Plotly.d3.csv("datasets/frequency_depression.csv", depressionData => {
-    const depression = unpack(depressionData, "Frequency of depression");
-    const lowHours = unpack(depressionData, "< 2 hours");
-    const midHours = unpack(depressionData, "3.5 hours");
-    const highHours = unpack(depressionData, "> 5 hours");
-
-    var traceLowHours = {
-        x: depression,
-        y: lowHours,
-        type: "bar",
-        name: "< 2 hours",
-        marker: {
-            color: barLow
-        },
-        hovertemplate: "Amount of people: %{y}<extra></extra>"
-    };
-
-    var traceMidHours = {
-        x: depression,
-        y: midHours, 
-        type: "bar",
-        name: "3.5 hours",
-        marker: {
-            color: barMid
-        },
-        xaxis: 'x2',
-        yaxis: 'y2',
-        hovertemplate: "Amount of people: %{y}<extra></extra>"
-    };
-
-    var traceHighHours = {
-        x: depression,
-        y: highHours,
-        type: "bar",
-        name: "> 5 hours",
-        marker: {
-            color: barHigh
-        },
-        xaxis: 'x3',
-        yaxis: 'y3',
-        hovertemplate: "Amount of people: %{y}<extra></extra>"
-    };
-
-    var data = [traceLowHours, traceMidHours, traceHighHours];
-
-    var layout = {
-        title: "Average daily hours spent on social media affecting depression rates",
-        paper_bgcolor: backgroundColor,
-        xaxis: {
-            title: "Depression frequency"
-        },
-        yaxis: {
-            title: "Amount of people",
-            range: [0, 100]
-        },
-        xaxis2: {
-            title: "Depression frequency"
-        },
-        yaxis2:{
-            range: [0, 100]
-        },
-        xaxis3: {
-            title: "Depression frequency"
-        },
-        yaxis3: {
-            range: [0, 100]
-        },
-        grid: { //subplot layout to make the graphs sit in one row
-            rows: 1, 
-            columns: 3, 
-            pattern: 'independent'
-        }
-    };
-
-    var config = {
-        responsive: true,
-        scrollZoom: false,
-        displayModeBar: false
-    }
-
-    // Plotly.newPlot("plotDepression", data, layout, config);
-    Plotly.newPlot("plotDepressionSeparate", data, layout, config);
-});
-
-// Chart comparing social media hours with the amount of people who experience sleeplessness
-Plotly.d3.csv("datasets/frequency_sleep.csv", sleepData => {
-    const sleep = unpack(sleepData, "Sleeplessness");
-    const lowHours = unpack(sleepData, "< 2 hours");
-    const midHours = unpack(sleepData, "3.5 hours");
-    const highHours = unpack(sleepData, "> 5 hours");
-
-    var traceLowHours = {
-        x: sleep,
-        y: lowHours,
-        type: "bar",
-        name: "< 2 hours",
-        marker: {
-            color: barLow
-        },
-        hovertemplate: "Amount of people: %{y}<extra></extra>"
-    };
-
-    var traceMidHours = {
-        x: sleep,
-        y: midHours, 
-        type: "bar",
-        name: "3.5 hours",
-        marker: {
-            color: barMid
-        },
-        xaxis: 'x2',
-        yaxis: 'y2',
-        hovertemplate: "Amount of people: %{y}<extra></extra>"
-    };
-
-    var traceHighHours = {
-        x: sleep,
-        y: highHours,
-        type: "bar",
-        name: "> 5 hours",
-        marker: {
-            color: barHigh
-        },
-        xaxis: 'x3',
-        yaxis: 'y3',
-        hovertemplate: "Amount of people: %{y}<extra></extra>"
-    };
-
-    var data = [traceLowHours, traceMidHours, traceHighHours];
-
-    var layout = {
-        title: "Sleeping habits impacted by average daily hours spent on social media",
-        paper_bgcolor: backgroundColor,
-        xaxis: {
-            title: "Sleeplessness frequency"
-        },
-        yaxis: {
-            title: "Amount of people",
-            range: [0, 100]
-        },
-        xaxis2: {
-            title: "Sleeplessness frequency"
-        },
-        yaxis2:{
-            range: [0, 100]
-        },
-        xaxis3: {
-            title: "Sleeplessness frequency"
-        },
-        yaxis3: {
-            range: [0, 100]
-        },
-        grid: { //subplot layout to make the graphs sit in one row
-            rows: 1, 
-            columns: 3, 
-            pattern: 'independent'
-        }
-    };
-
-    var config = {
-        responsive: true,
-        scrollZoom: false,
-        displayModeBar: false
-    }
-
-    // Plotly.newPlot("plotSleeplessness", data, layout, config);
-    Plotly.newPlot("plotSleeplessnessSeparate", data, layout, config);
 });
