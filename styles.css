@@ -13,9 +13,6 @@
 html {
     scroll-snap-type: y mandatory;
 }
-/* main {
-    scroll-snap-align: start;
-} */
 
 body {
     font-family: "Ubuntu", Helvetica, sans-serif;
@@ -29,10 +26,10 @@ h1, h2 {
     font-family: "Hammersmith One", Helvetica, sans-serif;
 }
 
+/* making the main content stay in the middle of the page */
 main article {
     max-width: 75vw;
     margin: auto;
-    /* scroll-snap-align: start; */
 }
 
 article h2 {
@@ -48,6 +45,7 @@ article h2 {
     max-height: 650px;
 } */
 
+/* plotContainer includes both the paragraph text and the plotly graph on the side */
 .plotContainer {
     display: flex;
     justify-content: center;
@@ -78,6 +76,66 @@ article h2 {
     background-color: var(--banner);
 }
 
+#solution {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* imageContainer styling used to create grids of the solution icons */
+.imageContainer {
+    margin: auto 15px auto 15px;
+    width: 20vw;
+    height: auto;
+    align-items: center;
+}
+
+.imageContainer img {
+    width: 98%;
+    height: auto;
+    align-self: flex-start;
+}
+
+.imageContainer p {
+    margin-top: 25px;
+    margin-bottom: 0px;
+    align-content: end;
+}
+
+footer {
+    /* position: fixed; */
+    /* left: 0;
+    bottom: 0; */
+    width: 100%;
+    margin-top: 50px;
+    height: 75px;
+    text-align: center;
+    background-color: rgb(197, 197, 197);
+    color: rgb(0, 0, 0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a:link, a:visited {
+    color: var(--secondaryFont);
+}
+
+a:hover {
+    /* color: rgb(9, 150, 82); */
+    color: var(--hoverColor);
+}
+
+#referenceList {
+    color: black;
+}
+#referenceList:hover {
+    color: red;
+}
+
+/* The following code is for styling the hero image at the top of the website along with the animated white arrow */
 /* References: 
 https://www.geeksforgeeks.org/how-to-create-a-hero-image-using-html-and-css/
 https://www.youtube.com/watch?v=5CztcrXpfec
@@ -112,43 +170,10 @@ https://www.youtube.com/watch?v=5CztcrXpfec
     /* font-size: 50px; */
 }
 
-footer {
-    /* position: fixed; */
-    /* left: 0;
-    bottom: 0; */
-    width: 100%;
-    margin-top: 75px;
-    height: 75px;
-    text-align: center;
-    background-color: rgb(197, 197, 197);
-    color: rgb(0, 0, 0);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Source: https://uiverse.io/ArturCodeCraft/afraid-fish-22 */
 /* a {
     text-decoration: none;
 } */
-
-a:link, a:visited {
-    color: var(--secondaryFont);
-}
-
-a:hover {
-    /* color: rgb(9, 150, 82); */
-    color: var(--hoverColor);
-}
-
-#referenceList {
-    color: black;
-}
-#referenceList:hover {
-    color: red;
-}
-
 
 /* <main-style> ============================ */
 /* .scrollText {
