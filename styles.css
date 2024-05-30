@@ -12,7 +12,9 @@
     --primaryFont: rgb(13, 31, 45);
     --secondaryFont: rgb(13, 31, 45);
     --hoverColor: rgb(32, 158, 148);
-    --banner: rgb(137, 161, 199);
+    /* --banner: rgb(137, 161, 199); */
+    --banner: rgb(150, 190, 186);
+    --bannerText: rgb(39, 60, 74);
 }
 
 /* html {
@@ -37,9 +39,9 @@ main article {
     margin: auto;
 }
 
-article h2 {
+/* article h2 {
     margin-top: 2rem;
-}
+} */
 
 .graphTitle {
     color: var(--temp);
@@ -54,8 +56,9 @@ article h2 {
     align-items: center;
 }
 
-.plotParagraph {
+.plotParagraph, .plotContainer p {
     align-self: center;
+    margin-right: 30px;
 }
 
 .plotRow h3 {
@@ -64,13 +67,17 @@ article h2 {
 
 .banner {
     width: 100%;
-    height: 100px;
+    height: 125px;
     display: flex;
     justify-content: center;
     align-items: center;
     /* text-align: center; */
-    margin: auto;
+    margin: 50px auto auto auto;
     background-color: var(--banner);
+}
+
+h2 {
+    color: var(--bannerText);
 }
 
 #solution {
@@ -105,7 +112,8 @@ footer {
     margin-top: 50px;
     height: 75px;
     text-align: center;
-    background-color: rgb(197, 197, 197);
+    /* background-color: rgb(197, 197, 197); */
+    background-color: rgb(192, 208, 206);
     color: rgb(0, 0, 0);
 
     display: flex;
@@ -126,7 +134,8 @@ a:hover {
     color: black;
 }
 #referenceList:hover {
-    color: red;
+    /* color: red; */
+    color: var(--hoverColor);
 }
 
 /* The following code is for styling the hero image at the top of the website along with the animated white arrow

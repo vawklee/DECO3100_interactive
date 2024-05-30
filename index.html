@@ -9,7 +9,6 @@
         <meta charset="utf-8">
 
         <link rel="stylesheet" href="styles.css">
-        <!-- temporary favicon -->
         <link rel="icon" type="image/x-icon" href="images/icons8-mobile-phone-96.png">
 
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -45,11 +44,13 @@
         </header>
         
         <main>
+            <!-- articles are used to divide each section/talking point -->
             <article id="introduction">
+                <!-- plotContainer is used to align the paragraphs and graph side by side with display:flex -->
                 <div class="plotContainer">
-                    <div>
+                    <div class="plotParagraph">
                         <h2>Social media's popularity is evergrowing...</h2>
-                        <p><a href="http://www.statista.com/statistics/278414/number-of-worldwide-social-network-users/" target="_blank">Social media usage across the globe</a> has increased from 2.73 billion users in 2017, to 4.59 billion users in 2022. That's <em>a 68.1% increase</em> in social media usage over 5 years, and this usage has been predicted to increase by a further 27.5% by 2027.</p>
+                        <p><a href="http://www.statista.com/statistics/278414/number-of-worldwide-social-network-users/" target="_blank">Social media usage across the globe has increased</a> from 2.73 billion users in 2017, to 4.59 billion users in 2022. That's <em>a 68.1% increase</em> in social media usage over 5 years, and this usage has been predicted to increase by a further 27.5% by 2027.</p>
                     </div>
                     <div id="plotUsersWorldwide" class="plotly"></div>
                 </div>
@@ -58,7 +59,6 @@
                     <p>Screen time follows the same trend with <a href="http://www.statista.com/statistics/433871/daily-social-media-usage-worldwide/" target="_blank">the average daily minutes spent on social media worldwide</a> increasing by 59% since 2012, with people using social media for 2.5 hours on average every day.<br><br>With the obsessive "need" to check social media to keep connected with friends, family and entertained by online personalities, many concerns have been raised about the impacts of excessive social media usage.</p>
                     <div id="plotDailyMinutes" class="plotly"></div>
                 </div>
-
             </article>
             
             <div class="banner">
@@ -68,24 +68,22 @@
             <article>
                 <div class="plotContainer">
                     <div class="plotParagraph">
-                        <h2>Excessive usage impacts our daily lifestyle and behaviour...</h2>
-                        <p>Social media usage is a leading cause of distraction in our daily lives, with people who have higher weekly hours of social media usage having cited feeling more distracted by social media and acting upon the desire to use social media than those with lower weekly screen time. </p>
+                        <h2>Excessive usage has noticable consequences on our lifestyle...</h2>
+                        <p>Those who average higher daily hours of social media usage cite feeling "<a href="https://www.kaggle.com/datasets/shabdamocharla/social-media-mental-health">more distracted by social media</a>" and acted upon the desire to browse social media more than those with lower daily hours.<br><br>The number of people experiencing high levels of distraction increases as their daily hours increase, contrasting with the lower levels of distraction cited by those with limited hours on social media.</p>
+                        <!-- <p>Social media usage is a leading cause of distraction in our daily lives.</p> -->
                     </div>
                     <div id="plotDistraction" class="plotly"></div>
                 </div>
-                <div class="plotRow">
-                    <div id="plotDistractionSeparate" class="plotly"></div>
-                </div>
                 
-                <!-- <h3 class="graphTitle">High hours of usage and impact on behaviour</h3> -->
                 <div class="plotContainer">
-                    <p>Social media has also been noted to have a direct impact on lifestyle and behaviours of users; A survey of social media users in Colorado shows that there is a positive correlation between higher hours of usage and higher percentages of experienced impact on lifestyle and behaviours, noted by all responding age groups.</p>
+                    <p>Social media has a direct impact on lifestyle and behaviours of users; A survey conducted on <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JBPZ9E">social media users in Colorado</a> found a positive correlation between higher hours of usage and higher percentages of experienced negative impact on lifestyle and behaviours, noted by all responding demographics.</p>
                     <div id="plotBehaviourImpact" class="plotly"></div>
                 </div>
 
                 <h2>Distraction isn't a solution...</h2>
                 <p>Whether the choice to browse social media is due to the engaging nature of social media itself, the need to stay connected with others or the "need" to avoid certain deadlines, people are more inclined to spend excessive amounts of time on social media once they have begun to be distracted.</p>
-                <p>Social media distraction severely impacts productivity since it takes up limited cognitive resources needed for concentration; When you attempt to multi-task alongside use of social media, goals are often completed to a lower quality or not completed at all in favour of endless social media scrolling. This can lead to further issues with possible deadlines or general dissatisfaction with personal achievements which can negatively impact other aspects of your wellbeing. (<a href="https://doi.org/10.3389/fpsyg.2021.711416" target="_blank">Koessmeier, C., & Büttner, O. B., 2021</a>)</p>
+                <p>Social media distraction severely impacts productivity. It takes up limited cognitive resources needed for concentration.</p>
+                <p>When multi-tasking alongside social media scrolling, goals are often completed to a lower quality <em>or not completed at all</em> in favour of endless social media scrolling. This can lead to further issues with possible deadlines or general dissatisfaction with personal achievements which can negatively impact other aspects of your wellbeing. (<a href="https://doi.org/10.3389/fpsyg.2021.711416" target="_blank">Koessmeier, C., & Büttner, O. B., 2021</a>)</p>
             </article>
             
             <div class="banner">
@@ -93,55 +91,46 @@
             </div>
 
             <article>
-                <!-- <h3 class="graphTitle">Emotional wellbeing & Hours spent on social media</h3> -->
                 <div class="plotContainer">
-                    <div>
-                        <h2>Doomscrolling also impacts your mental health...</h2>
-                        <p>Excessive amounts of time spent on social media often results in higher levels of negative impact on emotional wellbeing; A study conducted in Colorado shows that age groups with higher average weekly hours spent on social media noted experiencing poorer states of emotional wellbeing.</p>
+                    <div class="plotParagraph">
+                        <h2>Doomscrolling impacts your mental health...</h2>
+                        <!-- <p>Excessive amounts of time spent on social media often results in higher levels of negative impact on emotional wellbeing.<br><br> <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JBPZ9E">A Colorado study</a> found that age groups averaging higher weekly hours on social media cited experiencing poorer states of emotional wellbeing.</p> -->
+                        <p><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JBPZ9E">A Colorado study</a> found that age groups averaging higher weekly hours on social media cited experiencing poorer states of emotional wellbeing, giving cause for concern that excessive amounts of time spent on social media is detrimental to our mental health.</p>
                     </div>
                     <div id="plotEmotionalWellbeing" class="plotly"></div>
                 </div>
 
-                <!-- <h3 class="graphTitle">Frequency of depressive symptoms</h3> -->
                 <div class="plotContainer">
-                    <p>Another study found that there was an increasing number of people who experienced high frequencies of depressive symptoms when spending more hours using social media. There are a concerningly large amount of people who frequently experience symptoms of depression while spending more than 3.5 hours a day on social media.</p>
+                    <!-- <p><a href="https://www.kaggle.com/datasets/shabdamocharla/social-media-mental-health">Another study</a> found that there was an increasing number of people who experienced high frequencies of depressive symptoms when spending more hours using social media. There are a concerningly large amount of people who frequently experience symptoms of depression while spending more than 3.5 hours a day on social media.</p> -->
+                    <p><a href="https://www.kaggle.com/datasets/shabdamocharla/social-media-mental-health">Another study</a> found that the number of people experiencing high occurrences of depressive symptoms increased as the daily hours of social media usage increased. Addiction to social media contributes to this decline in mental health.</p>
                     <div id="plotDepression" class="plotly"></div>
-                </div>
-                <div class="plotRow">
-                    <div id="plotDepressionSeparate" class="plotly"></div>
                 </div>
 
                 <h2>Why does mental wellbeing matter?</h2>
-                <p>Excessive social media usage is a temporary solution. Poor mental wellbeing can lead to lower levels of productivity, worsened physical health, sleep issues, impact relationships and incite harmful behaviours.</p>
-                <p>The effect social media has on mental health cannot be ignored, whether it exacerbates existing mental health conditions or serves as a starting point for worsened emotional wellbeing.</p>
+                <p>Excessive social media usage is a temporary solution. Poor mental wellbeing can lead to lower levels of productivity, worsened physical health, sleep issues, impact relationships and incite harmful behaviours on the individual or others.</p>
+                <p>The effect social media has on mental health cannot be ignored, whether it exacerbates existing mental health conditions or serves as a starting point for worsened emotional wellbeing. Poor mental health is a spreading pandemic, but preventative measures can help reduce its impact on people's lives.</p>
             </article>
             
             <div class="banner">
                 <h2>How does this snowball into affecting physical health?</h2>
             </div>
             <article>
-                <!-- <h3 class="graphTitle">Hours spent on social media impacting physical wellbeing</h3> -->
                 <div class="plotContainer">
-                    <div>
-                        <h2>Social media addiction negatively impacts physical activity...</h2>
-                        <!-- <p>Social media addiction has a negative impact on physical health and frequency of physical activity. The same study conducted in Colorado also highlights the direct relationship between social media usage and its impact on people's physical health; People noted having experienced higher levels of negative impact on physical wellbeing when spending large amounts of time on social media every week as they often exercised less due to being distracted by social media usage.</p> -->
-                        <p>The same study conducted in Colorado also highlights the direct relationship between social media usage and its impact on people's physical health; People noted having experienced higher levels of negative impact on physical wellbeing when spending large amounts of time on social media every week as they often exercised less due to being distracted by social media usage.</p>
+                    <div class="plotParagraph">
+                        <h2>You can't exercise if you're glued to your screens...</h2>
+                        <p>People often exercise less due to being distracted by their screens, choosing to stay in their seats.<br><br>The same <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JBPZ9E">study in Colorado</a> also found a direct relationship between social media usage and its negative impact on physical health; People cited having experienced poorer physical health when spending longer amounts of time on social media weekly.</p>
                     </div>
                     <div id="plotPhysicalWellbeing" class="plotly"></div>
                 </div>
 
-                <!-- <h3 class="graphTitle">Excessive social media usage & its impact on sleep</h3> -->
                 <div class="plotContainer">
-                    <p>Higher usage of social media has also been observed to negatively impact sleeping habits. Studies comparing the amount of daily hours spent on social media with the frequency of sleeplessness shows that sleeplessness is more frequently experienced by individuals with more than 3.5 hours of daily social media usage. It was observed that there is an increasing number of people who experience poor sleeping habits, corresponding to the increasing hours of usage.</p>
+                    <p>Increased social media usage has also been observed to negatively impact sleeping habits.<br><br> <a href="https://www.kaggle.com/datasets/shabdamocharla/social-media-mental-health">Sleeplessness has been observed</a> to increase over time as daily scrolling hours increases; People averaging more than 3.5 hours daily developed poor sleeping habits, while sleeplessness was uncommon in people who limited their daily scrolling.</p>
                     <div id="plotSleeplessness" class="plotly"></div>
-                </div>
-                <div class="plotRow">
-                    <div id="plotSleeplessnessSeparate" class="plotly"></div>
                 </div>
 
                 <h2>What's the connection between lack of sleep and poor physical health?</h2>
-                <p>The need to constantly check social media often impacts people's sleeping habits, compelling users to stay awake and interrupt their circadian rhythms. When browsing social media at night, exposure to blue light from digital screens affects your ability to fall asleep and consequently your quality of sleep.</p>
-                <p>Sleep deprivation has serious consequences as it can lead to loss of productivity, difficulty with concentration, increased chances of diseases and negative influence on mental health conditions. The domino effect of a consequent lack of physical activity has also been shown to increase chances of certain diseases, as well as have a negative influence on emotional wellbeing.</p>
+                <p>The need to constantly check social media often impacts people's sleeping habits. It compels users to stay awake and interrupt their circadian rhythms. When browsing social media at night, exposure to blue light from digital screens affects your ability to fall asleep and consequently your quality of sleep.</p>
+                <p>Sleep deprivation has serious consequences: loss of productivity, difficulty with concentration, increased chances of diseases and negative influence on mental health conditions. The domino effect of a consequent lack of physical activity has also been <a href="https://www.nhlbi.nih.gov/health/sleep-deprivation">shown to increase chances</a> of certain diseases, as well as have a negative influence on emotional wellbeing.</p>
             </article>
 
             <div class="banner">
@@ -172,9 +161,9 @@
             </article>
         </main>
 
+        <!-- links to a separate page with the reference list -->
         <footer>
-            <p>DECO3100 Interactive Visualisation | <a href="references.html" id="referenceList" target="_blank">Reference List (APA 7th)</a></p>
-            
+            <p>DECO3100 Information Visualisation | <a href="references.html" id="referenceList" target="_blank">Reference List</a></p>
         </footer>
 
         <script src="script.js"></script>

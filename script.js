@@ -5,7 +5,8 @@ const unpack = (data, key) => data.map(row => row[key]);
 
 // setting up colour variables so you don't have to find them in all the layout groups
 const backgroundColor = "#eeeeee";
-const lineBlue = "#80AAC6";
+// const lineBlue = "#80AAC6";
+const lineBlue = "#4a918c";
 const lineRed = "#d15252";
 const barLow = "#8ab063";
 const barMid = "#ffb947";
@@ -44,10 +45,12 @@ Plotly.d3.csv("datasets/num_users_worldwide_predictions.csv", userData => {
     var data = [officialData, predictionData];
 
     var layout = {
-        title: "Social Media Users Worldwide Over 10 Years",
+        width: 750,
+        title: "Social media users worldwide over 10 years",
         yaxis: {
             title: "Amount of users (billions)",
             range: [0, 6],
+
         },
         xaxis: {
             tickmode: 'linear',
@@ -88,14 +91,19 @@ Plotly.d3.csv("datasets/avg_dailytime_worldwide.csv", dailyData => {
     var data = [{
         x: year,
         y: time,
-        type: "bar",
+        // type: "bar",
+        mode: "lines+markers",
         marker: {
             color: ['#7abdb5','#74b9b1','#6eb5ae','#68b1ab','#62ada7','#5ca9a4','#55a5a0','#4fa19d','#489d9a','#419997','#3a9593','#329190','#2a8d8d']
+        },
+        line: {
+            color: "#7abdb5"
         },
         hovertemplate: "%{y} minutes<extra></extra>"
     }];
 
     var layout = {
+        width: 750,
         title: "Average time spent on social media daily worldwide from 2012 to 2024",
         xaxis: {
             tickmode: "linear"
@@ -114,11 +122,11 @@ Plotly.d3.csv("datasets/avg_dailytime_worldwide.csv", dailyData => {
                 y: 151,
                 xref: "x",
                 yref: "y",
-                text: "Longest record",
+                text: "Highest record",
                 showarrow: true,
                 arrowhead: 7,
                 ax: 0, 
-                ay: -33
+                ay: 50
             }
         ]
         
@@ -176,7 +184,7 @@ Plotly.d3.csv("datasets/frequency_distraction_percentages.csv", distractionData 
     var data = [traceLowHours, traceMidHours, traceHighHours];
 
     var layout = {
-        title: "Daily social media hours influencing frequency of distraction",
+        title: "Frequency of distraction based on daily hours scrolling",
         barmode: "stack",
         paper_bgcolor: backgroundColor,
         xaxis: {
@@ -187,6 +195,7 @@ Plotly.d3.csv("datasets/frequency_distraction_percentages.csv", distractionData 
             ticksuffix: "%",
             range: [0, 100]
         },
+        width: 750
     };
 
     var config = {
@@ -241,7 +250,7 @@ Plotly.d3.csv("datasets/frequency_depression_percentages.csv", depressionData =>
     var data = [traceLowHours, traceMidHours, traceHighHours];
 
     var layout = {
-        title: "Daily social media hours influencing frequency of depression",
+        title: "Frequency of depression influenced by daily social media hours",
         barmode: "stack",
         paper_bgcolor: backgroundColor,
         xaxis: {
@@ -252,6 +261,7 @@ Plotly.d3.csv("datasets/frequency_depression_percentages.csv", depressionData =>
             ticksuffix: "%",
             range: [0, 100]
         },
+        width: 750
     };
 
     var config = {
@@ -305,7 +315,7 @@ Plotly.d3.csv("datasets/frequency_sleep_percentages.csv", sleepData => {
     var data = [traceLowHours, traceMidHours, traceHighHours];
 
     var layout = {
-        title: "Daily social media hours influencing frequency of sleeplessness",
+        title: "Sleeping habits affected by amount of daily scrolling",
         barmode: "stack",
         paper_bgcolor: backgroundColor,
         xaxis: {
@@ -316,6 +326,7 @@ Plotly.d3.csv("datasets/frequency_sleep_percentages.csv", sleepData => {
             ticksuffix: "%",
             range: [0, 100]
         },
+        width: 750
     };
 
     var config = {
@@ -338,7 +349,7 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
     var traceWeeklyHours = {
         x: age,
         y: hours,
-        // type: "bar",
+        // type: 'bar',
         mode: "lines",
         name: "Avg. hours",
         line: {
@@ -351,7 +362,7 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
         x: age,
         y: impact,
         yaxis: 'y2',
-        // type: "bar",
+        // type: 'bar',
         mode: "lines",
         name: "Neg. Impact %",
         line: {
@@ -363,8 +374,9 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
     var traceEmotional = {
         x: age,
         y: emotional,
+        // type: 'bar',
         mode: "lines",
-        name: "Emotional wellbeing %",
+        name: "Emo. wellbeing %",
         line: {
             color: lineRed
         },
@@ -375,8 +387,9 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
     var tracePhysical = {
         x: age,
         y: physical,
+        // type: 'bar',
         mode: "lines",
-        name: "Physical wellbeing %",
+        name: "Phys. wellbeing %",
         line: {
             color: lineRed
         },
@@ -394,7 +407,7 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
             title: "Age",
         },
         yaxis: {
-            title: "Average weekly hours spent on social media",
+            title: "Average weekly hours on social media",
             range: [0, 35],
             color: lineBlue
         },
@@ -406,18 +419,18 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
             color: lineRed
         },
         paper_bgcolor: backgroundColor,
-        width: 850,
+        width: 750,
         legend: {
             xref: "container",
             xanchor: "right",
-            x: 1.35
+            x: 1.45
         },
         updatemenus: [{
             buttons: [
                 {
                     method: "restyle",
                     args: [{"visible": [true, true]}],
-                    label: "Both"
+                    label: "Combined"
                 },
                 {
                     method: "restyle",
@@ -433,7 +446,7 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
             direction: 'down',
             showactive: true,
             xanchor: 'right',
-            x: 1.36,
+            x: 1.46,
             yanchor: 'top',
             y: 0.8
         }],
@@ -446,7 +459,7 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
             title: "Age"
         },
         yaxis: {
-            title: "Average weekly hours spent on social media",
+            title: "Average weekly hours on social media",
             color: lineBlue,
             range: [0, 35]
         },
@@ -458,12 +471,38 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
             side: "right",
         },
         paper_bgcolor: backgroundColor,
-        width: 850,
+        width: 750,
         legend: {
             xref: "container",
             xanchor: "right",
             x: 1.5
-        }
+        },
+        updatemenus: [{
+            buttons: [
+                {
+                    method: "restyle",
+                    args: [{"visible": [true, true]}],
+                    label: "Combined"
+                },
+                {
+                    method: "restyle",
+                    args: [{'visible': [true, false]}],
+                    label: "Average hours"
+                },
+                {
+                    method: "restyle",
+                    args: [{"visible": [false, true]}],
+                    label: "Emotional wellbeing"
+                }   
+            ],
+            direction: 'down',
+            showactive: true,
+            xanchor: 'right',
+            x: 1.52,
+            yanchor: 'top',
+            y: 0.8
+        }],
+        showlegend: true
     };
     
     var layoutPhysical = {
@@ -472,7 +511,7 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
             title: "Age"
         },
         yaxis: {
-            title: "Average weekly hours spent on social media",
+            title: "Average weekly hours on social media",
             color: lineBlue,
             range: [0, 35]
         },
@@ -484,12 +523,38 @@ Plotly.d3.csv("datasets/colorado_wellbeing_percentages.csv", coloradoData => { /
             side: "right"
         },
         paper_bgcolor: backgroundColor,
-        width: 850,
+        width: 750,
         legend: {
             xref: "container",
             xanchor: "right",
-            x: 1.45
-        }
+            x: 1.5
+        },
+        updatemenus: [{
+            buttons: [
+                {
+                    method: "restyle",
+                    args: [{"visible": [true, true]}],
+                    label: "Combined"
+                },
+                {
+                    method: "restyle",
+                    args: [{'visible': [true, false]}],
+                    label: "Average hours"
+                },
+                {
+                    method: "restyle",
+                    args: [{"visible": [false, true]}],
+                    label: "Physical wellbeing"
+                }   
+            ],
+            direction: 'down',
+            showactive: true,
+            xanchor: 'right',
+            x: 1.49,
+            yanchor: 'top',
+            y: 0.8
+        }],
+        showlegend: true
     };
 
     var config = {
