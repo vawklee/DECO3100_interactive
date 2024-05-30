@@ -1,3 +1,7 @@
+# Notes:
+- Screen resolution used for testing: 1805 x 1203
+- Browser viewport resolution used for testing: 1805 x 1060
+
 # Reference List
 Artur. (2023, August 16). *Button by ArturCodeCraft*. uiverse.io. https://uiverse.io/ArturCodeCraft/afraid-fish-22 
 
