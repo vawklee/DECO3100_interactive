@@ -93,6 +93,7 @@ Plotly.d3.csv("datasets/avg_dailytime_worldwide.csv", dailyData => {
         y: time,
         // type: "bar",
         mode: "lines+markers",
+        fill: "tozeroy",
         marker: {
             color: ['#7abdb5','#74b9b1','#6eb5ae','#68b1ab','#62ada7','#5ca9a4','#55a5a0','#4fa19d','#489d9a','#419997','#3a9593','#329190','#2a8d8d']
         },
@@ -126,7 +127,7 @@ Plotly.d3.csv("datasets/avg_dailytime_worldwide.csv", dailyData => {
                 showarrow: true,
                 arrowhead: 7,
                 ax: 0, 
-                ay: 50
+                ay: -33
             }
         ]
         

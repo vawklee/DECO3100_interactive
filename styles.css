@@ -138,6 +138,11 @@ a:hover {
     color: var(--hoverColor);
 }
 
+#referenceFooter {
+    position: absolute;
+    bottom: 0;
+}
+
 /* The following code is for styling the hero image at the top of the website along with the animated white arrow
     References: 
     1. https://www.geeksforgeeks.org/how-to-create-a-hero-image-using-html-and-css/
