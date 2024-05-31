@@ -9,15 +9,23 @@ ByteGrad [@ByteGrad]. (2022, December 17). *How to add gradient overlay to image
 
 Delicti, C. (2019). *phone click* [Image]. The Noun Project. https://thenounproject.com/icon/phone-click-2555970/ 
 
+Dixon, S. J. (2023). Number of global social network users 2017-2027 [Data set]. In *Statista*. https://www.statista.com/statistics/278414/number-of-worldwide-social-network-users/ 
+
+Dixon, S. J. (2024). Average daily time spent on social media worldwide 2012-2024 [Data set]. In *Statista*. https://www.statista.com/statistics/433871/daily-social-media-usage-worldwide/ 
+
 Ginkaew, K. (2022). *digital detox* [Image]. The Noun Project. https://thenounproject.com/icon/digital-detox-5123629/ 
 
 Guan, A. (2017, November 15). *person holding smartphone at night* [Image]. Unsplash.com. https://unsplash.com/photos/person-holding-smartphone-at-night-lTUyP3RaLpw 
 
 *Hammersmith One*. (n.d.). Google Fonts. Retrieved May 21, 2024, from https://fonts.google.com/specimen/Hammersmith+One 
 
+International Socioeconomics Laboratory. (2021). *The impact of mental disorders, physical health conditions, social media usage, and changes in employment on emotional wellbeing in Colorado* [Data set]. Harvard Dataverse. https://doi.org/10.7910/DVN/JBPZ9E 
+
 Koessmeier, C., & Büttner, O. B. (2021). Why are we distracted by social media? Distraction situations and strategies, reasons for distraction, and individual differences. *Frontiers in Psychology, 12*. https://doi.org/10.3389/fpsyg.2021.711416 
 
-Marcin, A. (2017, February 1). *20-20-20 rule: Does it help prevent digital eye strain?* Healthline. https://www.healthline.com/health/eye-health/20-20-20-rule 
+Marcin, A. (2017, February 1). *20-20-20 rule: Does it help prevent digital eye strain?* Healthline. https://www.healthline.com/health/eye-health/20-20-20-rule
+
+Mocharla, S. (2023). *The Effects of Social Media on Mental Health* [Data set]. https://www.kaggle.com/datasets/shabdamocharla/social-media-mental-health 
 
 Newsom, R., & Rehman, A. (2023, December 22). *Sleep and social media*. Sleep Foundation. https://www.sleepfoundation.org/how-sleep-works/sleep-and-social-media 
 
@@ -40,13 +48,3 @@ Tatah, N. (2021). *digital detox* [Image]. The Noun Project. https://thenounproj
 *What are sleep deprivation and deficiency?* (2022). National Heart, Lung, and Blood Institute. https://www.nhlbi.nih.gov/health/sleep-deprivation 
 
 *What is mental health?* (n.d.). Beyond Blue. Retrieved May 20, 2024, from https://www.beyondblue.org.au/mental-health/what-is-mental-health 
-
-# To Do List (Remove later)
-- add graph interactions
-    - filters for the charts
-    - different line styles, lines, lines + markers
-    - timeline slider?
-- clean up colour scheme
-- clean up headings and hierarchy of the information
-- more extensive research for consequences
-- add sources to graphs?

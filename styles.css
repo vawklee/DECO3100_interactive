@@ -130,6 +130,10 @@ a:hover {
     color: var(--hoverColor);
 }
 
+.references {
+    font-size: medium;
+}
+
 #referenceList {
     color: black;
 }
